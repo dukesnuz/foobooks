@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// New routes
+Route::get('/example', function () {
+    return 'Hello David!';
+});
