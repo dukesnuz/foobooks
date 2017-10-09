@@ -19,3 +19,23 @@ Route::get('/', function () {
 Route::get('/example', function () {
     return 'Hello David!';
 });
+/*
+Route::get('/books', function() {
+return 'Here are all the books...';
+});
+*/
+
+Route::get('/books', 'BookController@index');
+
+Route::get('hash', 'BookController@makeHash');
+
+Route::get('/book/{title?}', function($title = '') {
+
+    if($title == '') {
+        return 'Your request did not include a title.';
+    }
+    else {
+        return 'Results for the book: '.$title;
+    }
+
+});
