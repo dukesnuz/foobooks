@@ -35,6 +35,8 @@ return 'Here are all the books...';
 Route::get('/book/', 'BookController@index');
 Route::get('/book/{title}', 'BookController@show');
 Route::get('/hash/', 'BookController@makeHash');
+Route::get('/date/', 'BookController@getDate');
+Route::get('/timezone/', 'BookController@getTimezone');
 /*
 Route::get('/book/{title?}', function($title = '') {
 
