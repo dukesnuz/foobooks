@@ -14,16 +14,17 @@
 * My practice foobooks App
 */
 // Using index
-Route::get('/', 'WelcomeController@index');
+// not working
+//Route::get('/', 'WelcomeController@index');
 
 // Using __invoke()
+// not working
 //Route::get('/', 'WelcomeController');
 
-/*
 Route::get('/', function () {
     return view('welcome');
 });
-*/
+
 // New routes
 Route::get('/example', function () {
     return 'Hello David!';
