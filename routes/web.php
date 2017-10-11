@@ -12,12 +12,13 @@
 */
 /*
 * My practice foobooks App
-* /
+*/
 // Using index
 //Route::get('/', 'WelcomeController@index');
 
-// Using --invoke()
+// Using __invoke()
 Route::get('/', 'WelcomeController');
+
 /*
 Route::get('/', function () {
     return view('welcome');
