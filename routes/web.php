@@ -14,10 +14,10 @@
 * My practice foobooks App
 */
 // Using index
-//Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
 // Using __invoke()
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController');
 
 /*
 Route::get('/', function () {
