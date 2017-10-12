@@ -20,6 +20,9 @@
 // Using __invoke()
 // not working
 //Route::get('/', 'WelcomeController');
+Route::get('book/{id}/', function ($id) {
+    return 'You have requested book # '.$id;
+});
 
 Route::get('/', function () {
     return view('welcome');
