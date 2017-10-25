@@ -7,8 +7,9 @@ Route::get('/env', function () {
 });
 
 /**
-* PracticeController
+* Practice
 */
+Route::get('/practice/6', 'PracticeController@practice6');
 Route::any('/practice/{n?}', 'PracticeController@index');
 
 
@@ -38,32 +39,40 @@ Route::get('book/{id}/', function ($id) {
 });
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 // New routes
 Route::get('/example', function () {
     return 'Hello David!';
 });
-/*
-Route::get('/books', function() {
-return 'Here are all the books...';
-});
+
+/**
+* Book
 */
+Route::get('/book/create', 'BookController@create');
+Route::post('/book', 'BookController@store');
+
 Route::get('/book/', 'BookController@index');
 Route::get('/book/{title}', 'BookController@show');
+
+Route::get('/search', 'BookController@search');
+
 Route::get('/hash/', 'BookController@makeHash');
 Route::get('/date/', 'BookController@getDate');
 Route::get('/timezone/', 'BookController@getTimezone');
-/*
-Route::get('/book/{title?}', function($title = '') {
+Route::get('/show/{title}', 'PracticeController@show');
 
-    if ($title == '') {
-        return 'Your request did not include a title.';
-    } else {
-        return 'Results for the book: '.$title;
-    }
 
-});
+
+/**
+* Example portion of Foobooks that mirrors what you'll do for P3
 */
+Route::get('/trivia/', 'TriviaController@index');
+Route::get('/trivia/check-answer', 'TriviaController@checkAnswer');
+/**
+* Homepage
+*/
+Route::get('/', 'WelcomeController');

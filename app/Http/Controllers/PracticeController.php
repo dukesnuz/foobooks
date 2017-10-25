@@ -9,6 +9,12 @@ use cebe\markdown\MarkdownExtra;
 class PracticeController extends Controller
 {
 
+	public function show($title = null)
+         {
+	         dump($title);
+	         return view('book.show');
+          }
+
 	/**
 	*
 	*/
