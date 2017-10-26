@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1872a7f2ce4b8c328d13d552ab883dec",
+    "content-hash": "d93b1a03e61a66d6fdabd7fcdcaac0ba",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -276,6 +276,61 @@
                 "validator"
             ],
             "time": "2017-01-30T22:07:36+00:00"
+        },
+        {
+            "name": "embed/embed",
+            "version": "v2.7.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/Embed.git",
+                "reference": "90a6fd4515e816162d00481a2a2fc42af8740e38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/90a6fd4515e816162d00481a2a2fc42af8740e38",
+                "reference": "90a6fd4515e816162d00481a2a2fc42af8740e38",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.12",
+                "guzzlehttp/guzzle": "5.x",
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle@5.x": "To use Guzzle5 request resolver"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "twitter cards"
+            ],
+            "time": "2016-10-07T18:29:01+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1313,6 +1368,50 @@
                 "uuid"
             ],
             "time": "2017-09-22T20:46:04+00:00"
+        },
+        {
+            "name": "siokas/laravelembeddirectives",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/siokas/laravelembeddirectives.git",
+                "reference": "52533f88fe6cc95e37611c5f1455400f4023a22e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/siokas/laravelembeddirectives/zipball/52533f88fe6cc95e37611c5f1455400f4023a22e",
+                "reference": "52533f88fe6cc95e37611c5f1455400f4023a22e",
+                "shasum": ""
+            },
+            "require": {
+                "embed/embed": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Siokas\\LaravelEmbedDirectives\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Apostolos Siokas",
+                    "email": "apostolossiokas@gmail.com"
+                }
+            ],
+            "description": "Provides a custom Laravel Blade directive to embed anything in the view using the Embed\\Embed package.",
+            "keywords": [
+                "blade",
+                "embed",
+                "laravel",
+                "media",
+                "repository",
+                "social"
+            ],
+            "time": "2016-07-10T09:09:23+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -37,6 +37,11 @@
         @yield('content')
     </section>
 
+    <section id='socialMedia'>
+        <h3>Simply Practicing Using a <a href="https://packagist.org/packages/siokas/laravelembeddirectives">Package</a></h3>
+        @twitter('hseas/status/923252958145466369')
+    </section>
+
     <footer>
         <a href='https://github.com/dukesnuz/foobooks'><i class='fa fa-github'></i></a>&nbsp;
         &copy; {{ date('Y') }}

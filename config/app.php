@@ -177,6 +177,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+      /*
+       * For package
+       * https://packagist.org/packages/siokas/laravelembeddirectives
+      */
+      Siokas\LaravelEmbedDirectives\LaravelEmbedDirectivesServiceProvider::class
+      
     ],
 
     /*

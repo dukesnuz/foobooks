@@ -183,3 +183,9 @@ Misc
 .cf {
     *zoom: 1;
 }
+
+/* For package to display social media */
+section#socialMedia {
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
