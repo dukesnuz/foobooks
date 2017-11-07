@@ -11,6 +11,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    // Updated for migrations and mysql
     public function boot()
     {
         \Schema::defaultStringLength(191);
