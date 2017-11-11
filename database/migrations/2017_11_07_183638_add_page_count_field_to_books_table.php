@@ -14,7 +14,7 @@ class AddPageCountFieldToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->integer('page_count')->index('page_count')->comment('practice adding a column');
+            $table->integer('page_count')->index('page_count')->nullable()->comment('practice adding a column');
         });
     }
 
