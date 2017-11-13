@@ -15,36 +15,39 @@ class PracticeController extends Controller
 	Public function practice21() {
 		$author = 'J.K. Rowling';
 
-		$book = new Book();
+		$book = Book::where('author', '=', $author)->delete();
 
-		$book = $book->where('author', '=', $author)->first();
-
-		if(!$book) {
+		if($book == 0) {
 			dump("No book by $author was found");
 		} else {
-			$book->delete();
-			dump("Success. The book $book->title by $book->author has been removed.");
+			dump("Success. All books $author have been removed.");
 		}
 	}
 
-	#6: Find any books by the author Bell Hooks and
-	//update the author name to be bell hooks (lowercase).
+	// #6: Find any books by the author Bell Hooks and
+	// update the author name to be bell hooks (lowercase).
+	// I tried using Hash::make. This was not working. Was returning
+	// diiferent results even though the values to be hashed where the same
+	// So I used sha1(); The reason I am using sha1() is to check for
+	// case sensitivty.
 	Public function practice20() {
-		$author = 'Bell Hooks';
+		$checkAuthor = 'Bell Hooks';
+		$checkAuthorHash = sha1($checkAuthor);
 		$newAuthor = 'bell hooks';
 
-		$book = new Book();
+		$results = Book::where('author', '=', $checkAuthor)->get();
 
-		$book = $book->where('author', '=', $author)->first();
-
-		if(!$book) {
-			dump("No book by $author was found");
-		} else {
-			$book->author = $newAuthor;
-			$book->save();
-			dump("Success. The new author is $newAuthor.");
+		foreach ($results as $key => $result) {
+            $currentAuthorHash = sha1($result->author);
+			if($currentAuthorHash == $checkAuthorHash){
+				$book = Book::find($result->id);
+				$book->author = $newAuthor;
+				$book->save();
+				dump("Match found. $checkAuthor author will be changed to $newAuthor.");
+			} else {
+				dump('No match. Author was not changed.');
+			}
 		}
-
 	}
 
 	#5: Retrieve all the books in descending order according to published date.
