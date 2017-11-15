@@ -14,9 +14,9 @@ class PracticeController extends Controller
 	#7: Remove any books by the author “J.K. Rowling”.
 	Public function practice21() {
 		$author = 'J.K. Rowling';
-		
-		$book = Book::where('author', '=', $author)->delete();
 
+		$book = Book::where('author', '=', $author)->delete();
+		
 		if($book == 0):
 			dump("No book by $author was found");
 		else:
