@@ -6,22 +6,27 @@ use Illuminate\Http\Request;
 use Debugbar;
 use cebe\markdown\MarkdownExtra;
 use App\Book;
+use App\Utilities\Practice;
 
 class PracticeController extends Controller
 {
-
 	// Start exercises for progress week 11
 	#7: Remove any books by the author “J.K. Rowling”.
 	Public function practice21() {
+		Book::dump();
+
 		$author = 'J.K. Rowling';
 
 		$book = Book::where('author', '=', $author)->delete();
-		
+
 		if($book == 0):
 			dump("No book by $author was found");
 		else:
 			dump("Success. All books $author have been removed.");
 		endif;
+
+		Book::dump();
+		Practice::resetDataBase();
 	}
 
 	// #6: Find any books by the author Bell Hooks and
@@ -32,6 +37,8 @@ class PracticeController extends Controller
 	// case sensitivty.
 	// I guess I just felt like writing a lot of code.
 	Public function practice20() {
+		Book::dump();
+		
 		$checkAuthor = 'Bell Hooks';
 		$checkAuthorHash = sha1($checkAuthor);
 		$newAuthor = 'bell hooks';
@@ -54,6 +61,8 @@ class PracticeController extends Controller
 		    $message = 'No match. Author was not changed.';
 	    endif;
 	dump($message);
+	Book::dump();
+	Practice::resetDataBase();
 	}
 
 	#5: Retrieve all the books in descending order according to published date.
@@ -75,6 +84,8 @@ class PracticeController extends Controller
 		->orderby('title')
 		->get();
 		dump($results->toArray());
+		Book::dump();
+		Practice::resetDataBase();
 	}
 
 	#2: Retrieve the last 2 books that were added to the books table.
