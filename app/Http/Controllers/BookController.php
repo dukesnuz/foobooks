@@ -7,6 +7,7 @@ use App;
 use Hash;
 use Config;
 use Carbon\Carbon;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -16,12 +17,17 @@ class BookController extends Controller
        */
        public function index()
        {
-           $jsonPath = database_path('books.json');
-           $booksJson = file_get_contents($jsonPath);
-           $books = json_decode($booksJson, true);
+           //$jsonPath = database_path('books.json');
+           //$booksJson = file_get_contents($jsonPath);
+           //$books = json_decode($booksJson, true);
+           $books = Book::orderBy('title')->get();
 
+           //$newBooks = Book::orderByDesc('created_at')->limit(3)->get();
+           $newBooks = $books->sortByDesc('created_at')->take(3);
+           
            return view('book.index')->with([
-               'books' => $books
+               'books' => $books,
+               'newBooks' => $newBooks,
           ]);
        }
 

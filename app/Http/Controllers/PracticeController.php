@@ -10,9 +10,28 @@ use App\Utilities\Practice;
 
 class PracticeController extends Controller
 {
+	// Start exercises week 12 part 2 video collections
+
+   // Magic methods
+	Public function practice21() {
+		$books = Book::all();
+		//dump($books->toArray());
+		//echo $books;
+		foreach ($books as $book) {
+			dump($book['title']);
+		}
+
+		foreach ($books as $book) {
+			dump($book->title);
+		}
+	}
+    // Reset database
+    Public function practice99() {
+		Practice::resetDataBase();
+	}
 	// Start exercises for progress week 11
 	#7: Remove any books by the author “J.K. Rowling”.
-	Public function practice21() {
+	Public function practice20a() {
 		Book::dump();
 
 		$author = 'J.K. Rowling';
@@ -38,7 +57,7 @@ class PracticeController extends Controller
 	// I guess I just felt like writing a lot of code.
 	Public function practice20() {
 		Book::dump();
-		
+
 		$checkAuthor = 'Bell Hooks';
 		$checkAuthorHash = sha1($checkAuthor);
 		$newAuthor = 'bell hooks';
