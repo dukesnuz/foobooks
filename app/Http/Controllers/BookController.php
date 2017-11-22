@@ -24,7 +24,7 @@ class BookController extends Controller
 
            //$newBooks = Book::orderByDesc('created_at')->limit(3)->get();
            $newBooks = $books->sortByDesc('created_at')->take(3);
-           
+
            return view('book.index')->with([
                'books' => $books,
                'newBooks' => $newBooks,
@@ -138,17 +138,17 @@ class BookController extends Controller
 	*/
 	public function makeHash()
 	{
-		return Hash::make('secret');
+	       return Hash::make('secret');
 		//return \Hash::make('secret');
 	}
 
 	public function getDate()
 	{
-		return Carbon::now('Y');
+        return Carbon::now('Y');
 	}
 
 	public function getTimezone()
 	{
-		return Config::get('app.timezone');
+        return Config::get('app.timezone');
 	}
 }
