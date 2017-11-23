@@ -2,14 +2,12 @@
 
 
 @section('title')
-    Show book
+    {{ $book->title }}
 @endsection
 
 
 @section('content')
-    @if($title)
-        <h1>{{ $title }}</h1>
-    @else
-        <h1>No book chosen</h1>
-    @endif
+    <h1>{{ $book->title }}</h1>
+
+    {{ $book->author }}
 @endsection

@@ -28,7 +28,8 @@
             <img src='{{ $book['cover'] }}' class='cover' alt='Cover image for {{ $book['title'] }}'>
             <h2>{{ $book['title'] }}</h2>
             <p>By {{ $book['author'] }}</p>
-            <a href='/book/{{ kebab_case($book['title']) }}'>View</a>
+            <a href='/book/{{ $book['id'] }}'>View</a> |
+            <a href='/book/{{ $book['id'] }}/edit'>Edit</a>
         </div>
     @endforeach
 

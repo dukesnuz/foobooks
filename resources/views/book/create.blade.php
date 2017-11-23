@@ -15,21 +15,30 @@
         <div class='details'>* Required fields</div>
 
         <label for='title'>* Title</label>
-        <input type='text' name='title' id='title' value='{{ old('title') }}'>
+        <input type='text' name='title' id='title' value='{{ old('title', 'Green Eggs & Ham') }}'>
         @include('modules.error-field', ['fieldName' => 'title'])
 
         <label for='author'>* Author</label>
-        <input type='text' name='author' id='author' value='{{ old('author') }}'>
+        <input type='text' name='author' id='author' value='{{ old('author', 'Dr. Seuss') }}'>
         @include('modules.error-field', ['fieldName' => 'author'])
 
-        <label for='publishedYear'>* Published Year (YYYY)</label>
-        <input type='text' max='4' name='publishedYear' id='publishedYear' value='{{ old('publishedYear') }}'>
-        @include('modules.error-field', ['fieldName' => 'publishedYear'])
+        <label for='published'>* Published Year (YYYY)</label>
+        <input type='text' max='4' name='published' id='published' value='{{ old('published', '1960') }}'>
+        @include('modules.error-field', ['fieldName' => 'published'])
+
+        <label for='purchase_link'>* Publish URL</label>
+        <input type='text' name='purchase_link' id='purchase_link' value='{{ old('purchase_link', 'http://www.barnesandnoble.com/w/green-eggs-and-ham-dr-seuss/1100170349') }}'>
+        @include('modules.error-field', ['fieldName' => 'purchase_link'])
+
+        <label for='cover'>* Cover URL</label>
+        <input type='text' name='cover' id='cover' value='{{ old('cover', 'http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s192x300.jpg') }}'>
+        @include('modules.error-field', ['fieldName' => 'cover'])
+
+        <label for='page_count'>* Page Count</label>
+        <input type='text' name='page_count' id='page_count' value='{{ old('page_count', '99') }}'>
+        @include('modules.error-field', ['fieldName' => 'page_count'])
 
         <input type='submit' value='Add book' class='btn btn-primary btn-small'>
     </form>
 
-    @if(isset($title))
-        <div class='confirmation success'>Your book {{ $title }} was added.</a>
-    @endif
 @endsection
