@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->integer('published');
             $table->string('cover')->comment('URL To a cover photo for a book');
             $table->string('purchase_link')->comment('Expects a URL to where you can purchase the book');
+            $table->softDeletes();
         });
     }
 

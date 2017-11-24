@@ -60,6 +60,11 @@ Route::get('/book/{id}/edit', 'BookController@edit');
 # Process form to edit a specific book
 Route::put('/book/{id}', 'BookController@update');
 
+# Show book to be deleted
+Route::get('/book/{id}/delete', 'BookController@delete');
+# Process form to delete a specific book
+Route::put('/book/{id}/destroy', 'BookController@destroy');
+
 Route::get('/book/', 'BookController@index');
 Route::get('/book/{id}', 'BookController@show');
 

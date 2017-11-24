@@ -8,6 +8,7 @@ use Hash;
 use Config;
 use Carbon\Carbon;
 use App\Book;
+use App\Utilities\Practice;
 
 class BookController extends Controller
 {
@@ -182,6 +183,30 @@ class BookController extends Controller
         return redirect('/book/'.$id.'/edit')->with('alert', 'Your changes were saved.');
 
     }
+
+    /*
+    * Create a soft delete for books
+    */
+    # Show the book to be deleted
+    public function delete(Request $request, $id)
+    {
+        $book = Book::find($id);
+        if(!$book) {
+            return redirect('/book')->with('alert', 'OOppss! System error. Your book was not deleted.');
+        } else {
+        return view('book.delete')->with([
+            'book' => $book
+        ]);
+        }
+    }
+
+    # Delete the book and return visitor to list of all books.
+    public function destroy(Request $request)
+    {
+        $book = Book::where('id', '=', $request->input('id') )->delete();
+        return redirect('/book')->with('alert', 'Your selected book was deleted.');
+    }
+
 
 	/**
 	* make Hash

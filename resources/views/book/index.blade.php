@@ -29,7 +29,8 @@
             <h2>{{ $book['title'] }}</h2>
             <p>By {{ $book['author'] }}</p>
             <a href='/book/{{ $book['id'] }}'>View</a> |
-            <a href='/book/{{ $book['id'] }}/edit'>Edit</a>
+            <a href='/book/{{ $book['id'] }}/edit'>Edit</a> |
+            <a href='/book/{{ $book['id'] }}/delete'>Delete</a>
         </div>
     @endforeach
 
