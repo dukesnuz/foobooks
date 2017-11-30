@@ -32,7 +32,6 @@ class BookController extends Controller
           ]);
        }
 
-
        /**
        * GET /book/{$id}
        */
@@ -47,7 +46,6 @@ class BookController extends Controller
                'book' => $book
            ]);
        }
-
 
        /**
        *
@@ -100,7 +98,6 @@ class BookController extends Controller
            ]);
        }
 
-
        /**
        *
        */
@@ -110,7 +107,6 @@ class BookController extends Controller
                'title' => session('title')
            ]);
        }
-
 
        /**
        *
@@ -188,7 +184,7 @@ class BookController extends Controller
     * Create a soft delete for books
     */
     # Show the book to be deleted
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         $book = Book::find($id);
         if(!$book) {
