@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Book extends Model
 {
     use SoftDeletes;
+
+    public function author()
+    {
+        # Book belongs to Author
+        # Define an inverse one-to-many relationship.
+        return $this->belongsTo('App\Author');
+    }
+
     /*
     * Dump essential details of book onto the page
     */
