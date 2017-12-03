@@ -17,7 +17,8 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
-            $table->string('author')->nullable();
+            // Below is now handled by the authors -> books table relationship
+            //$table->string('author')->nullable();
             $table->integer('published');
             $table->string('cover')->comment('URL To a cover photo for a book');
             $table->string('purchase_link')->comment('Expects a URL to where you can purchase the book');
