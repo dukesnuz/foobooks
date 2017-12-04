@@ -11,6 +11,28 @@ use App\Utilities\Practice;
 
 class PracticeController extends Controller
 {
+	// Start Exercises Week 13 part 6 video
+	public function practice26()
+	{
+		$books = Book::with('tags')->get();
+
+		foreach ($books as $book) {
+			dump($book->title.' is tagged with: ');
+			foreach ($book->tags as $tag) {
+				dump($tag->name.' ');
+			}
+		}
+	}
+
+	public function practice25()
+	{
+		$book = Book::where('title', '=', 'The Great Gatsby')->first();
+
+		dump($book->title.' is tagged with: ');
+		foreach ($book->tags as $tag) {
+			dump($tag->name);
+		}
+	}
 	// Start Exercises Week 13 part 4 video
 	Public function practice24() {
 		# Eager load the author with the book
@@ -22,7 +44,7 @@ class PracticeController extends Controller
 
 		dump($books->toArray());
 	}
-	
+
 	Public function practice23() {
 		# Get the first book as an example
 		$book = Book::first();
