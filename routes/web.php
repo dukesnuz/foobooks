@@ -35,13 +35,13 @@ Route::any('/practice/{n?}', 'PracticeController@index');
 //Route::get('/', 'WelcomeController');
 /*
 Route::get('book/{id}/', function ($id) {
-    return 'You have requested book # '.$id;
+return 'You have requested book # '.$id;
 });
 */
 
 /*
 Route::get('/', function () {
-    return view('welcome');
+return view('welcome');
 });
 */
 // New routes
@@ -52,23 +52,30 @@ Route::get('/example', function () {
 /**
 * Book
 */
-Route::get('/book/create', 'BookController@create');
-Route::post('/book', 'BookController@store');
+//Route::get('/book/create', 'BookController@create');
+Route::get('/book/create', [
+    'middleware' => 'auth',
+    'uses' => 'BookController@create'
+]);
+Route::group(['middleware' => 'auth'], function () {
 
-# Show form to edit specific book
-Route::get('/book/{id}/edit', 'BookController@edit');
-# Process form to edit a specific book
-Route::put('/book/{id}', 'BookController@update');
+    Route::post('/book', 'BookController@store');
 
-# Show book to be deleted
-Route::get('/book/{id}/delete', 'BookController@delete');
-# Process form to delete a specific book
-Route::put('/book/{id}/destroy', 'BookController@destroy');
+    # Show form to edit specific book
+    Route::get('/book/{id}/edit', 'BookController@edit');
+    # Process form to edit a specific book
+    Route::put('/book/{id}', 'BookController@update');
 
-Route::get('/book/', 'BookController@index');
-Route::get('/book/{id}', 'BookController@show');
+    # Show book to be deleted
+    Route::get('/book/{id}/delete', 'BookController@delete');
+    # Process form to delete a specific book
+    Route::put('/book/{id}/destroy', 'BookController@destroy');
 
-Route::get('/search', 'BookController@search');
+    Route::get('/book/', 'BookController@index');
+    Route::get('/book/{id}', 'BookController@show');
+
+    Route::get('/search', 'BookController@search');
+});
 
 Route::get('/hash/', 'BookController@makeHash');
 Route::get('/date/', 'BookController@getDate');
@@ -113,4 +120,20 @@ Route::get('/debug', function () {
     }
 
     dump($debug);
+});
+
+Auth::routes();
+
+// verify registration a success
+
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
 });

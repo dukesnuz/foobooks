@@ -18,16 +18,33 @@ class BookController extends Controller
     /**
     * GET /
     */
-    public function index()
+    public function index(Request $request)
     {
+          $user = $request->user();
+
+        # Note: We're getting the user from the request, but you can also get it like this:
+          //$user = Auth::user();
+
         //$jsonPath = database_path('books.json');
         //$booksJson = file_get_contents($jsonPath);
         //$books = json_decode($booksJson, true);
-        $books = Book::orderBy('title')->get();
 
-        //$newBooks = Book::orderByDesc('created_at')->limit(3)->get();
-        $newBooks = $books->sortByDesc('created_at')->take(3);
+        if ($user) {
 
+            // Approach 1
+            // $books = Book::where('user_id', '=', $user->id)->orderBy('title')->get();
+
+            // Approach 2 Take advantage of model relationship
+            $books = $user->books()->orderBy('title')->get();
+
+            // Get 3 most recent books
+            // $newBooks = Book::orderByDesc('created_at')->limit(3)->get();
+               $newBooks = $books->sortByDesc('created_at')->take(3);
+
+        } else {
+            $books = [];
+            $newBooks = [];
+        }
         return view('book.index')->with([
             'books' => $books,
             'newBooks' => $newBooks,
@@ -148,6 +165,7 @@ class BookController extends Controller
         $newBook->cover = $request->input('cover');
         $newBook->purchase_link = $request->input('purchase_link');
         $newBook->page_count = $request->input('page_count');
+        $newBook->user_id = $request->user()->id;
         $newBook->save();
 
         return redirect('/book')->with('alert', 'The book '.$request->input('title').  ' was added.');

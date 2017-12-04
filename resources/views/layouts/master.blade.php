@@ -17,9 +17,9 @@
 <body>
 
     @if(session('alert'))
-        <div class='alert'>
+    <div class='alert'>
         {{ session('alert') }}
-        </div>
+    </div>
     @endif
 
     <header>
@@ -28,34 +28,27 @@
             style='width:300px'
             alt='Foobooks Logo'></a>
 
-        {{-- ToDo: Make it so active link in nav is highlighted --}}
-        <nav>
-            <ul>
-                <li><a href='/trivia'>Trivia</a>
-                <li><a href='/book'>All Books</a>
-                <li><a href='/book/create'>Add a Book</a>
-                <li><a href='/search'>Search</a>
-            </ul>
-        </nav>
-    </header>
+            {{-- ToDo: Make it so active link in nav is highlighted --}}
+            @include('modules.nav')
+        </header>
 
-    <section id='main'>
-        @yield('content')
-    </section>
+        <section id='main'>
+            @yield('content')
+        </section>
 
-    <section id='socialMedia'>
-        <h3>Simply Practicing Using a <a href="https://packagist.org/packages/siokas/laravelembeddirectives">Package</a></h3>
-        @twitter('hseas/status/923252958145466369')
-    </section>
+        <section id='socialMedia'>
+            <h3>Simply Practicing Using a <a href="https://packagist.org/packages/siokas/laravelembeddirectives">Package</a></h3>
+            @twitter('hseas/status/923252958145466369')
+        </section>
 
-    <footer>
-        <a href='https://github.com/dukesnuz/foobooks'><i class='fa fa-github'></i></a>&nbsp;
-        &copy; {{ date('Y') }}
-    </footer>
+        <footer>
+            <a href='https://github.com/dukesnuz/foobooks'><i class='fa fa-github'></i></a>&nbsp;
+            &copy; {{ date('Y') }}
+        </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    @stack('body')
+        @stack('body')
 
-</body>
-</html>
+    </body>
+    </html>
