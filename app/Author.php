@@ -12,4 +12,14 @@ class Author extends Model {
         # Define a one-to-many relationship.
         return $this->hasMany('App\Book');
     }
+
+    public static function getForDropdown()
+    {
+        $authors = Author::orderBy('last_name')->get();
+        $authorsForDropDowns = [0 => 'Choose one...'];
+        foreach ($authors as $author) {
+            $authorsForDropDowns[$author->id] = $author->first_name.' '.$author->last_name;
+        }
+        return $authorsForDropDowns;
+    }
 }

@@ -8,6 +8,7 @@ use Hash;
 use Config;
 use Carbon\Carbon;
 use App\Book;
+use App\Author;
 use App\Utilities\Practice;
 
 class BookController extends Controller
@@ -103,8 +104,13 @@ class BookController extends Controller
        */
        public function create()
        {
+
+           $authorsForDropDowns = Author::getForDropdown();
+
+           //dump($authorsForDropDowns);
+
            return view('book.create')->with([
-               'title' => session('title')
+               'authorsForDropDowns' => $authorsForDropDowns,
            ]);
        }
 
@@ -119,18 +125,24 @@ class BookController extends Controller
 
            $this->validate($request, [
                'title' => 'required|min:3',
-               'author' => 'required',
+               'author' => 'notIn:0',
                'published' => 'required|min:4|numeric',
                'cover' => 'required|url',
                'purchase_link' => 'required|url',
                'page_count' => 'numeric',
                ''
            ]);
+           // Below adds a 2nd request from server
+           //$author = Author::find($request->input('author'));
+           //dd($author);
 
            # Add new book to the database
            $newBook = new Book();
            $newBook->title = $request->input('title');
-           $newBook->author = $request->input('author');
+           //$newBook->author = $request->input('author');
+           // Below adds a 2nd request from server
+           //$newBook->author()->associate($author);
+           $newBook->author_id = $request->input('author');
            $newBook->published = $request->input('published');
            $newBook->cover = $request->input('cover');
            $newBook->purchase_link = $request->input('purchase_link');
@@ -147,29 +159,35 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::find($id);
+
         if(!$book) {
             return redirect('/book')->with('alert', 'Book not found');
         }
 
-        return view('book.edit')->with(['book' => $book]);
+         $authorsForDropDowns = Author::getForDropdown();
+
+        return view('book.edit')->with([
+            'book' => $book,
+             'authorsForDropDowns' => $authorsForDropDowns,
+         ]);
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'title' => 'required|min:3',
-            'author' => 'required',
+            'author' => 'notIn:0',
             'published' => 'required|min:4|numeric',
             'cover' => 'required|url',
             'purchase_link' => 'required|url',
             'page_count' => 'numeric',
-            ''
         ]);
 
+        dump($request->input('author'));
         $newBook = Book::find($id);
 
         $newBook->title = $request->input('title');
-        $newBook->author = $request->input('author');
+        $newBook->author_id = $request->input('author');
         $newBook->published = $request->input('published');
         $newBook->cover = $request->input('cover');
         $newBook->purchase_link = $request->input('purchase_link');

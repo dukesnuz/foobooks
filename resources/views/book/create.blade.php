@@ -19,7 +19,7 @@
         @include('modules.error-field', ['fieldName' => 'title'])
 
         <label for='author'>* Author</label>
-        <input type='text' name='author' id='author' value='{{ old('author', 'Dr. Seuss') }}'>
+        @include('book.authorsDropdown')
         @include('modules.error-field', ['fieldName' => 'author'])
 
         <label for='published'>* Published Year (YYYY)</label>
