@@ -7,7 +7,7 @@
 @section('content')
     <h1>{{ $book->title }}</h1>
 
-    <h2>By: {{ $book->author }}</h2>
+    <h2>By: {{ $book->author['first_name'] }} {{ $book->author['last_name'] }}</h2>
 
     <form method='POST' action='/book/{{ $book->id }}/destroy'>
         {{ method_field('put') }}

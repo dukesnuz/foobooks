@@ -16,7 +16,7 @@
             <div class='book cf'>
                 <img src='{{ $book['cover'] }}' class='cover' alt='Cover image for {{ $book['title'] }}'>
                 <h2>{{ $book['title'] }}</h2>
-                <p>By {{ $book['author'] }}</p>
+                <p>By {{ $book['author']['first_name'] }} {{ $book['author']['last_name'] }}</p>
                 <a href='/book/{{ kebab_case($book['title']) }}'>View</a>
             </div>
         @endforeach
