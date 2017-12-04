@@ -226,10 +226,11 @@ class BookController extends Controller
     # Delete the book and return visitor to list of all books.
     public function destroy(Request $request)
     {
-        // Below line will cause error whe using detach()
-        //$book = Book::where('id', '=', $request->input('id') );
-        $book = Book::find($request->input('id'));
-        $book->tags()->detach();
+        // Line below will cause an error when adding detach() unless also using first()
+        $book = Book::where('id', '=', $request->input('id') )->first();
+        // This line will not cause the same above error when also using detach()
+        // $book = Book::find($request->input('id'));
+        //$book->tags()->detach();
         $book->delete();
         return redirect('/book')->with('alert', 'Your selected book was deleted.');
     }
