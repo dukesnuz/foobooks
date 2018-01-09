@@ -34,7 +34,6 @@ class BooksTableSeeder extends Seeder
 
             # Find that author in the authors table
             $author_id = Author::where('last_name', '=', $lastName)->pluck('id')->first();
-            dump($author_id);
             Book::insert([
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),

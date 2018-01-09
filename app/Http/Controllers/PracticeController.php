@@ -11,6 +11,76 @@ use App\Utilities\Practice;
 
 class PracticeController extends Controller
 {
+	//week 14 question Q6 in progress log
+	public function practice32()
+	{
+		$course = Book::where('title', '=', 'The Great Gatsby')->first();
+		echo $course;
+	}
+	public function practice31()
+	{
+		$course = Book::where('title', '=', 'The Great Gatsby')->first();
+		dump(gettype($course->credits));
+	}
+	public function practice30()
+	{
+		$course = Book::where('title', '=', 'The Great Gatsby')->first();
+		dump(gettype($course->toArray()));
+	}
+	public function practice29()
+	{
+		$course = Book::where('title', '=', 'The Great Gatsby')->first();
+		dump(gettype($course));
+	}
+	public function practice28()
+	{
+		$course = Book::where('title', '=', 'The Great Gatsby')->first();
+		dump(gettype($course->title));
+	}
+	//week 14 question Q5 in progress log
+	public function practice27()
+	{
+		$books = Book::where('title', 'LIKE', '%Harry%')->orderBy('published')->limit(1)->get();
+		dump($books->toArray());
+	}
+	//week 14 question Q4 in progress log
+	public function practice4a()
+	{
+		$books = Book::all();
+		foreach($books as $book) {
+    		dump($book->author);
+		}
+	}
+	//week 14 question Q4 in progress log
+	public function practice4b()
+	{
+		$books = Book::with('author')->get();
+		foreach($books as $book) {
+   			dump($book->author);
+		}
+
+	}
+     //week 14 question Q3 in progress log
+	 public function practice26a()
+	 {
+	 	$books = Book::orderByDesc('id')->get();
+    	dump($books->first()->title);
+	 }
+	 public function practice26b()
+	 {
+		$book = Book::orderByDesc('id')->first();
+ 	 	dump($book->title);
+	 }
+	 public function practice26c()
+	{
+		$book = Book::orderByDesc('id')->limit(1)->first();
+ 		dump($book->title);
+	}
+	public function practice26d()
+   {
+	   $book = Book::orderByDesc('id')->get();
+	   dump($book->title);
+   }
 	// Start Exercises Week 13 part 6 video
 	public function practice26()
 	{
