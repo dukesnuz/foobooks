@@ -44,7 +44,6 @@
         methods: {
             fetchBooks()
             {
-              //let uri = 'http://www.ajaxtransport.com/carrier/api/carrier_data.php?c=882740765&x=08694c9806c0703cf8e8985f7be19e99596b44f0');
               let uri = `http://foobooks.loc/getbooks`;
               this.axios.get(uri).then((response) => {
               this.books = response.data;
