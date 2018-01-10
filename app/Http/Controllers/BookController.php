@@ -272,4 +272,13 @@ class BookController extends Controller
     {
         return Config::get('app.timezone');
     }
+
+    // Added for using Vuejs
+    public function getBooks ()
+    {
+        $books = BOOK::all();
+        $books = response()->json($books);
+        return $books;
+    }
+
 }

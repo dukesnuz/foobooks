@@ -9,6 +9,9 @@ All books
 @endsection
 
 @section('content')
+Vue
+<example-component></example-component>
+end vue
 
 @if(count($newBooks) > 0)
 <div class='newBooks' style='background-color: yellow'>

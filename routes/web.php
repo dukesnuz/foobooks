@@ -33,11 +33,11 @@ Route::any('/practice/{n?}', 'PracticeController@index');
 // Using __invoke()
 // not working
 //Route::get('/', 'WelcomeController');
-/*
+
 Route::get('book/{id}/', function ($id) {
 return 'You have requested book # '.$id;
 });
-*/
+
 
 /*
 Route::get('/', function () {
@@ -45,10 +45,11 @@ return view('welcome');
 });
 */
 // New routes
+/*
 Route::get('/example', function () {
     return 'Hello David!';
 });
-
+*/
 /**
 * Book
 */
@@ -137,3 +138,14 @@ Route::get('/show-login-status', function () {
 
     return;
 });
+/**********************************
+* Using vuejs
+*/
+Route::get('/vue', function () {
+    return view('vue-practice');
+});
+Route::get('/display', function () {
+    return view('vue-practice');
+});
+
+Route::get('/getbooks', 'BookController@getBooks');
