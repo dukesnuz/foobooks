@@ -276,8 +276,9 @@ class BookController extends Controller
     // Added for using Vuejs
     public function getBooks ()
     {
-        $books = BOOK::all();
-        $books = response()->json($books);
+        $data = BOOK::all();
+        $books = response()->json($data);
+
         return $books;
     }
 
