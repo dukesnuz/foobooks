@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "siokas/laravelembeddirectives": "^1.1"
+        "siokas/laravelembeddirectives": "^1.1",
+        "waavi/url-shortener": "1.0.x"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.1",

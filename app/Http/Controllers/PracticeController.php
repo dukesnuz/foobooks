@@ -11,6 +11,13 @@ use App\Utilities\Practice;
 
 class PracticeController extends Controller
 {
+
+	//shortenUrl
+	public function practice33()
+	{
+		 dd(\UrlShortener::driver('bitly')->shorten('http://driver.loc/dispat1pGKyt6NlwvVVVMN1BGZ1NBR0greHVFUlR3PZjEwMGU4MDRjMjE4MDU5YmIzZTgyMWZmODVmZjE4YTAxMTI2YmY1MGFkZDRhNTkzOGM0MzYzNTEifQ'));
+	}
+
 	//week 14 question Q6 in progress log
 	public function practice32()
 	{

@@ -181,8 +181,13 @@ return [
        * For package
        * https://packagist.org/packages/siokas/laravelembeddirectives
       */
-      Siokas\LaravelEmbedDirectives\LaravelEmbedDirectivesServiceProvider::class
-      
+      Siokas\LaravelEmbedDirectives\LaravelEmbedDirectivesServiceProvider::class,
+
+      /*
+      * for package
+      * https://github.com/Waavi/url-shortener
+      */
+      Waavi\UrlShortener\UrlShortenerServiceProvider::class,
     ],
 
     /*
@@ -231,6 +236,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
 
     ],
 

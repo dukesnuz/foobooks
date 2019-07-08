@@ -12,7 +12,9 @@ Route::get('/env', function () {
 Route::get('/practice/6', 'PracticeController@practice6');
 Route::any('/practice/{n?}', 'PracticeController@index');
 
-
+// practice shorten url
+// https://github.com/Waavi/url-shortener
+Route::get('/pracitce/33', 'PracticeController@shortenUrl');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -149,3 +151,5 @@ Route::get('/display', function () {
 });
 
 Route::get('/getbooks', 'BookController@getBooks');
+
+/***praticing phpunit*****/
