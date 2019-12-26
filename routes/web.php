@@ -6,6 +6,22 @@ Route::get('/env', function () {
     dump(config('app.url'));
 });
 
+/*** added to create a Facade***/
+// random number method is invoked
+Route::get('random-number', function () {
+    Number::randomNumber();
+});
+
+// epoch method is invoked
+Route::get('epoch-time', function () {
+    Number::epoch();
+});
+
+// If the method does not exist, then the PHP magic method is invoked
+Route::get('does-not-exist', function () {
+    Number::doesNotExist();
+});
+
 /**
 * Practice
 */
@@ -37,7 +53,7 @@ Route::get('/pracitce/33', 'PracticeController@shortenUrl');
 //Route::get('/', 'WelcomeController');
 
 Route::get('book/{id}/', function ($id) {
-return 'You have requested book # '.$id;
+    return 'You have requested book # '.$id;
 });
 
 
@@ -61,7 +77,6 @@ Route::get('/book/create', [
     'uses' => 'BookController@create'
 ]);
 Route::group(['middleware' => 'auth'], function () {
-
     Route::post('/book', 'BookController@store');
 
     # Show form to edit specific book
@@ -99,7 +114,6 @@ Route::get('/', 'WelcomeController');
 
 
 Route::get('/debug', function () {
-
     $debug = [
         'Environment' => App::environment(),
         'Database defaultStringLength' => Illuminate\Database\Schema\Builder::$defaultStringLength,

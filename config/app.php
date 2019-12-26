@@ -176,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\NumberServiceProvider::class, //I added
       /*
        * For package
        * https://packagist.org/packages/siokas/laravelembeddirectives
@@ -237,7 +237,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
-
+        'Number' => App\Facades\Number::class, //I added this line
     ],
 
 ];
