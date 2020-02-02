@@ -1,4 +1,5 @@
 <?php
+
 Route::get('/env', function () {
     dump(config('app.name'));
     dump(config('app.env'));
@@ -9,17 +10,17 @@ Route::get('/env', function () {
 /*** added to create a Facade***/
 // random number method is invoked
 Route::get('random-number', function () {
-    Number::randomNumber();
+    return Number::randomNumber();
 });
 
 // epoch method is invoked
 Route::get('epoch-time', function () {
-    Number::epoch();
+    return Number::epoch();
 });
 
 // If the method does not exist, then the PHP magic method is invoked
 Route::get('does-not-exist', function () {
-    Number::doesNotExist();
+    return Number::doesNotExist();
 });
 
 /**
